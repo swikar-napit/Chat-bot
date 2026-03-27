@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shikshyalaya AI</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.1.2/css/material-design-iconic-font.min.css">
+</head>
+<body>
+    <div class="card">
+        <div id="header">
+            <h1>Shikshyalaya AI 🎓</h1>
+        </div>
+        <div id="message-section">
+            <div class="message" id="bot">
+                <span id="bot-response">Namaste! How can I help you with Shikshyalaya College today?</span>
+            </div>
+        </div>
+        <div id="input-section">
+            <input id="input" type="text" placeholder="Type a message..." autocomplete="off" autofocus />
+            <button class="send" onclick="sendMessage()">
+                <div class="circle"><i class="zmdi zmdi-mail-send"></i></div>
+            </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
