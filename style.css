@@ -128,32 +128,47 @@ body {
 
 /* --- MOBILE RESPONSIVE PART --- */
 
+/* --- UPDATED MOBILE RESPONSIVE FIXES --- */
+
 @media (max-width: 480px) {
   body {
-    background: #fff; /* Remove gradient for cleaner mobile look */
-    align-items: flex-start;
+    /* Keeps the background gradient and centers the box */
+    padding: 15px;
+    align-items: center; 
   }
 
   .chat-container {
-    max-width: 100%;
-    height: 100vh;
-    height: 100dvh; /* Dynamic height for mobile */
-    border-radius: 0; /* Remove rounded corners on full screen */
-    box-shadow: none;
+    /* Makes the box slightly smaller than the screen width */
+    width: 95%;
+    max-width: 380px; 
+    
+    /* Reduces height from full-screen to a balanced look */
+    height: 85vh; 
+    height: 85dvh;
+
+    /* Restores the rounded look for a "best" UI feel */
+    border-radius: 25px; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   .chat-header {
-    padding: 15px;
-    border-radius: 0;
+    padding: 18px 10px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
   }
 
   .message {
-    max-width: 90%; /* Give text more room on narrow screens */
-    font-size: 0.9rem;
+    max-width: 88%;
+    font-size: 0.88rem;
+    padding: 8px 12px;
   }
 
   .chat-input {
-    padding: 10px;
-    padding-bottom: 20px; /* Extra space for bottom gesture bars */
+    padding: 12px;
+    /* Keeps space for mobile gesture bars without being too tall */
+    padding-bottom: 15px; 
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
   }
 }
