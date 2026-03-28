@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #2563eb; /* Modern Blue */
+  --primary-color: #2563eb;
   --bot-msg-bg: #f1f5f9;
   --user-msg-bg: #2563eb;
   --text-dark: #1e293b;
@@ -21,23 +21,26 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  /* Support for modern mobile browsers to prevent URL bar issues */
+  min-height: 100dvh; 
 }
 
+/* Base Container (Laptop View) */
 .chat-container {
   width: 100%;
   max-width: 420px;
   background: #fff;
   border-radius: 20px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   height: 85vh;
   overflow: hidden;
   position: relative;
+  transition: all 0.3s ease;
 }
 
-/* Header Styling */
 .chat-header {
   background: var(--primary-color);
   color: white;
@@ -45,7 +48,6 @@ body {
   text-align: center;
   font-size: 1.1rem;
   font-weight: 600;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .chat-header span {
@@ -54,39 +56,23 @@ body {
   font-weight: 300;
   opacity: 0.9;
   margin-top: 5px;
-  letter-spacing: 0.5px;
 }
 
-/* Messages Area */
 .chat-messages {
   flex: 1;
-  padding: 20px;
+  padding: 15px;
   overflow-y: auto;
   background: #ffffff;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 transparent;
+  gap: 12px;
 }
 
-/* Custom Scrollbar for Chrome/Safari */
-.chat-messages::-webkit-scrollbar {
-  width: 5px;
-}
-.chat-messages::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 10px;
-}
-
-/* Message Bubbles */
 .message {
   max-width: 85%;
-  padding: 12px 16px;
-  font-size: 0.92rem;
-  line-height: 1.5;
-  position: relative;
-  transition: all 0.2s ease;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .message.user {
@@ -94,7 +80,6 @@ body {
   color: white;
   align-self: flex-end;
   border-radius: 18px 18px 2px 18px;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
 .message.bot {
@@ -105,22 +90,19 @@ body {
   border: 1px solid #e2e8f0;
 }
 
-/* Typing Indicator */
 .typing {
-  padding: 0 20px 10px;
+  padding: 5px 20px;
   font-size: 0.8rem;
   color: #64748b;
-  font-style: italic;
   display: none;
 }
 
-/* Input Area Styling */
 .chat-input {
   display: flex;
-  padding: 15px;
+  padding: 12px;
   background: #fff;
   border-top: 1px solid #f1f5f9;
-  align-items: center;
+  gap: 8px;
 }
 
 .chat-input input {
@@ -129,15 +111,8 @@ body {
   border: 1px solid #e2e8f0;
   border-radius: 25px;
   outline: none;
-  font-size: 0.95rem;
+  font-size: 16px; /* Critical: Prevents iOS from zooming in on input focus */
   background: #f8fafc;
-  transition: all 0.3s ease;
-}
-
-.chat-input input:focus {
-  border-color: var(--primary-color);
-  background: #fff;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .chat-input button {
@@ -145,22 +120,40 @@ body {
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  margin-left: 10px;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.2s, background 0.2s;
-  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+  flex-shrink: 0;
 }
 
-.chat-input button:hover {
-  transform: scale(1.08);
-  background: #1d4ed8;
-}
+/* --- MOBILE RESPONSIVE PART --- */
 
-.chat-input button:active {
-  transform: scale(0.95);
+@media (max-width: 480px) {
+  body {
+    background: #fff; /* Remove gradient for cleaner mobile look */
+    align-items: flex-start;
+  }
+
+  .chat-container {
+    max-width: 100%;
+    height: 100vh;
+    height: 100dvh; /* Dynamic height for mobile */
+    border-radius: 0; /* Remove rounded corners on full screen */
+    box-shadow: none;
+  }
+
+  .chat-header {
+    padding: 15px;
+    border-radius: 0;
+  }
+
+  .message {
+    max-width: 90%; /* Give text more room on narrow screens */
+    font-size: 0.9rem;
+  }
+
+  .chat-input {
+    padding: 10px;
+    padding-bottom: 20px; /* Extra space for bottom gesture bars */
+  }
 }
