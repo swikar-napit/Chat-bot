@@ -9,22 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.1.2/css/material-design-iconic-font.min.css">
 </head>
 <body>
-    <div class="card">
-        <div id="header">
-            <h1>Shikshyalaya AI 🎓</h1>
-        </div>
-        <div id="message-section">
-            <div class="message" id="bot">
-                <span id="bot-response">Namaste! How can I help you with Shikshyalaya College today?</span>
-            </div>
-        </div>
-        <div id="input-section">
-            <input id="input" type="text" placeholder="Type a message..." autocomplete="off" autofocus />
-            <button class="send" onclick="sendMessage()">
-                <div class="circle"><i class="zmdi zmdi-mail-send"></i></div>
-            </button>
+<div class="chat-container">
+    <div class="chat-header">
+        Shikshyalaya College AI
+        <span>Powered by Gemini | Best College in Nepal</span>
+    </div>
+    
+    <div class="chat-messages" id="chat-messages">
+        <div class="message bot">
+            Namaste! 🙏 I am the AI assistant for Shikshyalaya College. Ask me about our CSIT, BBA, and MBA programs, admission details, or our facilities!
         </div>
     </div>
+    
+    <div class="typing" id="typing-indicator">Gemini is typing...</div>
+    
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Ask about programs, contact, or clubs..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">&#10148;</button>
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
