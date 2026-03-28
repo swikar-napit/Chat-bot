@@ -98,21 +98,25 @@ body {
 }
 
 .chat-input {
-  display: flex;
-  padding: 12px;
+   display: flex;
+  padding: 12px 15px; /* Adjusted padding for better spacing */
   background: #fff;
   border-top: 1px solid #f1f5f9;
-  gap: 8px;
+  gap: 10px;
+  align-items: center; /* Ensures the input and button are perfectly centered vertically */
+  width: 100%; /* Ensures the container fills the parent */
 }
 
 .chat-input input {
-  flex: 1;
+    flex: 1;
+  min-width: 0; /* CRITICAL FIX: This allows the input to "squeeze" and shrink */
   padding: 12px 18px;
   border: 1px solid #e2e8f0;
   border-radius: 25px;
   outline: none;
-  font-size: 16px; /* Critical: Prevents iOS from zooming in on input focus */
+  font-size: 16px;
   background: #f8fafc;
+  transition: border 0.2s;
 }
 
 .chat-input button {
@@ -123,52 +127,37 @@ body {
   width: 45px;
   height: 45px;
   cursor: pointer;
-  flex-shrink: 0;
+  flex-shrink: 0; /* Prevents the button from being squashed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
 }
 
-/* --- MOBILE RESPONSIVE PART --- */
+/* --- MOBILE RESPONSIVE FIXES --- */
 
 /* --- UPDATED MOBILE RESPONSIVE FIXES --- */
 
 @media (max-width: 480px) {
-  body {
-    /* Keeps the background gradient and centers the box */
-    padding: 15px;
-    align-items: center; 
-  }
-
   .chat-container {
-    /* Makes the box slightly smaller than the screen width */
-    width: 95%;
-    max-width: 380px; 
-    
-    /* Reduces height from full-screen to a balanced look */
-    height: 85vh; 
-    height: 85dvh;
-
-    /* Restores the rounded look for a "best" UI feel */
-    border-radius: 25px; 
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  .chat-header {
-    padding: 18px 10px;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-  }
-
-  .message {
-    max-width: 88%;
-    font-size: 0.88rem;
-    padding: 8px 12px;
+    width: 92%; /* Slightly smaller width to give it a "floating" feel */
+    height: 85vh;
+    border-radius: 25px; /* Keeps the nice rounded look */
+    margin: 20px auto;
   }
 
   .chat-input {
-    padding: 12px;
-    /* Keeps space for mobile gesture bars without being too tall */
-    padding-bottom: 15px; 
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    padding: 10px 12px; /* Tighter padding for mobile */
+    padding-bottom: 15px; /* Space for mobile swipe bars */
+  }
+
+  .chat-input input {
+    padding: 10px 15px; /* Smaller padding inside the search bar */
+    font-size: 15px; /* Slightly smaller text for mobile */
+  }
+
+  .chat-input button {
+    width: 40px; /* Slightly smaller button for mobile */
+    height: 40px;
   }
 }
