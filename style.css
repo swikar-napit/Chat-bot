@@ -134,30 +134,27 @@ body {
   font-size: 1.2rem;
 }
 
-/* --- MOBILE RESPONSIVE FIXES --- */
-
-/* --- UPDATED MOBILE RESPONSIVE FIXES --- */
 
 @media (max-width: 480px) {
   .chat-container {
-    width: 92%; /* Slightly smaller width to give it a "floating" feel */
+    width: 92%; 
     height: 85vh;
-    border-radius: 25px; /* Keeps the nice rounded look */
+    border-radius: 25px; 
     margin: 20px auto;
   }
 
   .chat-input {
-    padding: 10px 12px; /* Tighter padding for mobile */
-    padding-bottom: 15px; /* Space for mobile swipe bars */
+    padding: 10px 12px; 
+    padding-bottom: 15px; 
   }
 
   .chat-input input {
-    padding: 10px 15px; /* Smaller padding inside the search bar */
-    font-size: 15px; /* Slightly smaller text for mobile */
+    padding: 10px 15px;
+    font-size: 15px; 
   }
 
   .chat-input button {
-    width: 40px; /* Slightly smaller button for mobile */
+    width: 40px; 
     height: 40px;
   }
 }
